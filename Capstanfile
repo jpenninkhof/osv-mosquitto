@@ -1,0 +1,24 @@
+#
+# Name of the base image.  Capstan will download this automatically from
+# Capstan repository. 
+#
+base: cloudius/osv-base
+
+#
+# The command line passed to OSv to start up the application.
+#
+cmdline: /mosquitto.so -c /etc/mosquitto.conf
+
+#
+# The command to use to build the application.  In this example, we just use
+# make.
+#
+build: make
+
+#
+# List of files that are included in the generated image.
+#
+files:
+  /mosquitto.so: src/mosquitto.so
+  /usr/lib/libmosquitto.so.1: lib/libmosquitto.so.1
+  /etc/mosquitto.conf: mosquitto.conf

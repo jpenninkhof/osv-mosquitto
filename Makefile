@@ -4,14 +4,14 @@ DIRS=lib client src
 DOCDIRS=man
 DISTDIRS=man
 
-.PHONY : all mosquitto docs binary clean reallyclean test install uninstall dist sign copy
+.PHONY : all mosquitto docs module clean reallyclean test install uninstall dist sign copy
 
 all : $(MAKE_ALL)
 
 docs :
 	set -e; for d in ${DOCDIRS}; do $(MAKE) -C $${d}; done
 
-binary : mosquitto
+module : mosquitto
 
 mosquitto :
 ifeq ($(UNAME),Darwin)
